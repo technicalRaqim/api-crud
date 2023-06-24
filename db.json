@@ -1,0 +1,17 @@
+{
+  "students": [
+    {
+      "name": "mohd",
+      "email": "ashad@aicom",
+      "phone": "8077766",
+      "id": 10
+    },
+    {
+      "name": "ansari",
+      "email": "mohd",
+      "phone": "987456",
+      "active": true,
+      "id": 11
+    }
+  ]
+}
