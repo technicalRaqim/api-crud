@@ -16,9 +16,9 @@ const EmpEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/students/${id}`)
+    axios.get(`https://users-data-chrj.onrender.com/data/${id}`)
       .then((res) => {
-       console.log("dshfjdsfifinfnfjds",res.data)
+       console.log(res.data)
       //  idChange(res.id)
        nameChange(res.data.name)
        phoneChange(res.data.phone)
@@ -35,7 +35,7 @@ const EmpEdit = () => {
     const body={}
     axios
       .put(`http://localhost:8000/students/${id}`,{name,email,phone}
-  )
+      )
       .then((res) => {
         console.log(res.data);
         alert("Data updated Successfuly");
@@ -73,7 +73,7 @@ const EmpEdit = () => {
                   onChange={(e) => nameChange(e.target.value)}
                   className="form-control"
                 ></input>
-                { <span className="text-danger">Enter the Name</span>}
+                { <span className="text-danger">Edit the Name</span>}
               </div>
             </div>
 

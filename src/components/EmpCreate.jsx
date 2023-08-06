@@ -12,9 +12,10 @@ const EmpCreate = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:8000/students/${id}`)
+    axios
+      .get(`https://users-data-chrj.onrender.com/data/${id}`)
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         empdataChange(res.data);
       })
       .catch((err) => {
@@ -24,10 +25,13 @@ const EmpCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {}
+    const body = {};
     axios
-      .post("http://localhost:8000/students/",{
-        name,email,phone,active
+      .post("https://users-data-chrj.onrender.com/data", {
+        name,
+        email,
+        phone,
+        active,
       })
       .then((res) => {
         console.log(res.data);
@@ -61,19 +65,23 @@ const EmpCreate = () => {
               <div className="col">
                 <div className="form-group">
                   <label>Name</label>
-                  <input required
+                  <input
+                    rquired
                     value={name}
                     onChange={(e) => nameChange(e.target.value)}
                     className="form-control"
                   ></input>
-                  {name.length==0 && <span className="text-danger">Enter the Name</span>}
+                  {name.length == 0 && (
+                    <span className="text-danger">Enter the Name</span>
+                  )}
                 </div>
               </div>
 
               <div className="col">
                 <div className="form-group">
                   <label>Email</label>
-                  <input required
+                  <input
+                    required
                     value={email}
                     onChange={(e) => emailChange(e.target.value)}
                     className="form-control"

@@ -13,9 +13,9 @@ navigate(`/edit/${id}`)
   const RemoveFunction= (id)=>{
     const conf= window.confirm('do you want to delete')
     if(conf){
-  axios.delete(`http://localhost:8000/students/${id}`)
+  axios.delete(`https://users-data-chrj.onrender.com/data/${id}`)
     .then((res) => {
-      alert('Recod has been deleted')
+      alert('Record has been deleted')
       navigate("/")
       // setStatus(true)
       console.log("dbwyedbwebdwehfvewgf",res)
@@ -32,7 +32,7 @@ navigate(`/edit/${id}`)
     navigate(`/detail/${id}`)
   }
   useEffect(() => {
-    axios.get("http://localhost:8000/students/")
+    axios.get("https://users-data-chrj.onrender.com/data")
       .then((res) => {
         console.log(res.data)
         setEmpdata(res.data);
@@ -44,6 +44,10 @@ navigate(`/edit/${id}`)
 
  
   return (
+    <div>
+    <Link  to ='/login/:id' className="btn btn-danger" >Login</Link>
+    <Link to='/signup/:id'className="btn btn-success bg-green">Sign Up</Link>
+    
     <div className="conatiner">
       <div className="card">
         <div className="card-title">
@@ -58,11 +62,11 @@ navigate(`/edit/${id}`)
           <table className="table table-bordered">
             <thead>
               <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Action</td>
+                <td><strong>Id</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Email</strong></td>
+                <td><strong>Phone</strong></td>
+                <td><strong>Action</strong></td>
               </tr>
             </thead>
             {
@@ -88,6 +92,7 @@ navigate(`/edit/${id}`)
           </table>
         </div>
       </div>
+    </div>
     </div>
   );
 };
